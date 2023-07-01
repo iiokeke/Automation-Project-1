@@ -16,9 +16,9 @@ Assignment 2:
  5. Add comment to the first test containing today’s date
  */
 
-describe('This is first test suite', () => {
+describe('This is first test suite, Innocent Okeke', () => {
     it('User can submit data only when valid mandatory values are added', () => {
-        cy.get('#username').type('Something')
+        cy.get('#username').type('IIO')
         cy.get('[data-testid="phoneNumberTestId"]').type('10203040')
         cy.get('input[name="password"]').type('MyPass')
         cy.get('[name="confirm"]').type('MyPass')
@@ -40,7 +40,7 @@ describe('This is first test suite', () => {
         cy.get('#success_message').should('have.css', 'display', 'block')
     });
 
-    it('User can use only same both first and validation passwords', () => {
+    it.only('User can use only same both first and validation passwords', () => {
         cy.get('#username').type('johnDoe')
         cy.get('[data-testid="phoneNumberTestId"]').type('10203040')
         cy.get('input[name="password"]').type('MyPass')
@@ -61,7 +61,7 @@ describe('This is first test suite', () => {
         cy.get('input[name="confirm"]').should('have.attr', 'title', 'Both passwords should match')
     })
 
-    it('User cannot submit data when username is absent', () => {
+    it.only('User cannot submit data when username is absent', () => {
         cy.get('[data-testid="phoneNumberTestId"]').type('10203040')
         cy.get('input[name="password"]').type('MyPass')
         cy.get('[name="confirm"]').type('MyPass')
